@@ -2,6 +2,7 @@
 using beerboard.API.Models;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -11,10 +12,12 @@ namespace beerboard.API.Client
     public class BreweryDbApiClient : IBeerApiClient
     {
         private const string baseURL = "http://api.brewerydb.com/v2";
+        private readonly string apiKey;
 
-        // In a real-word application, the API Key would be stored somewhere else,
-        // for example in a configuration system.
-        private const string apiKey = "YOUR_API_KEY_HERE";
+        public BreweryDbApiClient()
+        {
+            apiKey = ConfigurationManager.AppSettings["ApiKey"];
+        }
 
         /// <summary>
         /// Searches beers after a give query using BreweryDB's API. Since the Search API of
