@@ -2,6 +2,8 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { MatDialog } from '@angular/material';
 
+import { BeerDetailDialogComponent } from './beer-detail-dialog.component';
+
 import { Beer } from './beer';
 import { BeerSearchService } from './beer-search.service';
 
@@ -21,7 +23,8 @@ export class SearchResultsComponent implements OnInit {
   
   constructor(
     private beerSearchService: BeerSearchService,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute,
+    public dialog: MatDialog) { }
 
   sortOptions = [
     { value: 'name', text: 'Name ascending' },
@@ -55,7 +58,7 @@ export class SearchResultsComponent implements OnInit {
   search(): void {
   	this.isLoading = true;
   	this.filterOrganic = 'all';
-	  this.filterStatus = 'all';
+	this.filterStatus = 'all';
     this.sortBy = undefined;
   	this.beerSearchService
         .searchBeers(this.query)
@@ -67,5 +70,13 @@ export class SearchResultsComponent implements OnInit {
           this.error = error; // TODO: Display error message
           this.isLoading = false;
         });
-    }
+  }
+
+  showBeerDetail(beer: Beer): void {
+  	this.dialog.open(BeerDetailDialogComponent, {
+  		height: '80%',
+  		width: '50%',
+  		data: { beer: beer }
+  	});
+  }
 }

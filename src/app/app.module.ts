@@ -11,11 +11,13 @@ import { MatCheckboxModule } from '@angular/material';
 import { MatRadioModule } from '@angular/material';
 import { MatToolbarModule } from '@angular/material';
 import { MatSelectModule } from '@angular/material';
+import { MatDialogModule } from '@angular/material';
 import { MatProgressSpinnerModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { SearchComponent } from './search.component';
 import { SearchResultsComponent } from './search-results.component';
+import { BeerDetailDialogComponent } from './beer-detail-dialog.component';
 import { AppRoutingModule } from './app-routing.module';
 
 import { BeerSearchService } from './beer-search.service';
@@ -28,6 +30,7 @@ import { SortByPipe } from './sort-by.pipe';
     AppComponent,
     SearchComponent,
     SearchResultsComponent,
+    BeerDetailDialogComponent,
     FilterPipe,
     SortByPipe
   ],
@@ -44,9 +47,11 @@ import { SortByPipe } from './sort-by.pipe';
     MatSelectModule,
     MatToolbarModule,
     BrowserAnimationsModule,
+    MatDialogModule,
     MatProgressSpinnerModule
   ],
   providers: [BeerSearchService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [BeerDetailDialogComponent]
 })
 export class AppModule { }

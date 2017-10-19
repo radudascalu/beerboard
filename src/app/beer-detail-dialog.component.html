@@ -1,0 +1,10 @@
+<div class="right">
+	<button mat-mini-fab mat-dialog-close color="white"><strong>X</strong></button>
+</div>
+<div class="center">
+	<img src="{{data.beer.labels !== null ? data.beer.labels.medium : 'https://d30y9cdsu7xlg0.cloudfront.net/png/24239-200.png'}}" />
+	<h1 class="title">{{data.beer.name}}</h1>
+	<h3 class="is-organic">Organic: {{data.beer.isOrganic === 'Y' ? 'Yes' : 'No'}}</h3>
+	<h3 class="status">Status: {{data.beer.status}}</h3>
+	<h4>{{data.beer.description}}</h4>
+</div>

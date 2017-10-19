@@ -1,0 +1,15 @@
+.center {
+	text-align: center;
+}
+.right {
+	text-align: right;
+}
+.title {
+	color: purple;
+}
+.is-organic {
+	color: darkgreen;
+}
+.status {
+	color: brown;
+}

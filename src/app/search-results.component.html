@@ -36,7 +36,7 @@
 <div>
 
 <ul>
-  <li *ngFor="let beer of beers | filter: filterOrganic : filterStatus | sortBy: sortBy; let beerCount = count">
+  <li *ngFor="let beer of beers | filter: filterOrganic : filterStatus | sortBy: sortBy; let beerCount = count" (click)="showBeerDetail(beer)">
     <img src="{{beer.labels !== null ? beer.labels.medium : 'https://d30y9cdsu7xlg0.cloudfront.net/png/24239-200.png'}}" />
     <h2>{{beer.name}}</h2>
     <h3>abv: {{beer.abv == null ? 'n/a' : beer.abv}}</h3>
