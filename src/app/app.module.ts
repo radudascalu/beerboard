@@ -8,19 +8,28 @@ import { MatGridListModule } from '@angular/material';
 import { MatButtonModule } from '@angular/material';
 import { MatInputModule } from '@angular/material';
 import { MatCheckboxModule } from '@angular/material';
+import { MatRadioModule } from '@angular/material';
 import { MatToolbarModule } from '@angular/material';
 import { MatSelectModule } from '@angular/material';
+import { MatProgressSpinnerModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { SearchComponent } from './search.component';
 import { SearchResultsComponent } from './search-results.component';
 import { AppRoutingModule } from './app-routing.module';
 
+import { BeerSearchService } from './beer-search.service';
+
+import { FilterPipe } from './filter.pipe';
+import { SortByPipe } from './sort-by.pipe';
+
 @NgModule({
   declarations: [
     AppComponent,
     SearchComponent,
-    SearchResultsComponent
+    SearchResultsComponent,
+    FilterPipe,
+    SortByPipe
   ],
   imports: [
     BrowserModule,
@@ -31,10 +40,13 @@ import { AppRoutingModule } from './app-routing.module';
     MatButtonModule,
     MatInputModule,
     MatCheckboxModule,
+    MatRadioModule,
     MatSelectModule,
     MatToolbarModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatProgressSpinnerModule
   ],
+  providers: [BeerSearchService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

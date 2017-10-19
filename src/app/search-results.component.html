@@ -5,7 +5,7 @@
       <mat-form-field class="half-width">
         <input matInput type="search" [(ngModel)]="query"/>
       </mat-form-field>
-      <button mat-mini-fab color="white"><strong>></strong></button>
+      <button (click)="search()" mat-mini-fab color="white"><strong>></strong></button>
     </span>
 </mat-toolbar>
 
@@ -34,3 +34,16 @@
     </mat-select>
   </mat-form-field>
 <div>
+
+<ul>
+  <li *ngFor="let beer of beers | filter: filterOrganic : filterStatus | sortBy: sortBy; let beerCount = count">
+    <img src="{{beer.labels !== null ? beer.labels.medium : 'https://d30y9cdsu7xlg0.cloudfront.net/png/24239-200.png'}}" />
+    <h2>{{beer.name}}</h2>
+    <h3>abv: {{beer.abv == null ? 'n/a' : beer.abv}}</h3>
+  </li>
+<ul>
+
+<div class="overlay" [class.show]="isLoading">
+</div>
+
+<mat-spinner [class.show]="isLoading"></mat-spinner>

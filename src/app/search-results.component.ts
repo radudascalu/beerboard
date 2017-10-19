@@ -1,5 +1,9 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
+import { MatDialog } from '@angular/material';
+
+import { Beer } from './beer';
+import { BeerSearchService } from './beer-search.service';
 
 @Component({
   selector: 'search-results',
@@ -7,12 +11,16 @@ import { ActivatedRoute, Params } from '@angular/router';
   styleUrls: ['./search-results.component.css']
 })
 export class SearchResultsComponent implements OnInit {
+  beers: Beer[];
   query: string;
+  error: any;
   sortBy: string;
   filterOrganic = 'all';
   filterStatus = 'all';
+  isLoading = false;
   
   constructor(
+    private beerSearchService: BeerSearchService,
     private route: ActivatedRoute) { }
 
   sortOptions = [
@@ -36,5 +44,28 @@ export class SearchResultsComponent implements OnInit {
   ];
 
   ngOnInit(): void {
+    this.route.params.forEach((params: Params) => {
+      if (params['q'] !== undefined) {
+        this.query = params['q'];
+        this.search();
+      }
+    });
   }
+
+  search(): void {
+  	this.isLoading = true;
+  	this.filterOrganic = 'all';
+	  this.filterStatus = 'all';
+    this.sortBy = undefined;
+  	this.beerSearchService
+        .searchBeers(this.query)
+        .then(beers => {
+          this.beers = beers;
+          this.isLoading = false;
+        })
+        .catch(error => { 
+          this.error = error; // TODO: Display error message
+          this.isLoading = false;
+        });
+    }
 }
