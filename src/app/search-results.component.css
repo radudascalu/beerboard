@@ -1,0 +1,17 @@
+.spacer {
+  	flex: 1 1 auto;
+}
+
+.filtering-panel {
+  	text-align: right;
+  	margin-right: 20px;
+}
+
+mat-form-field {
+	padding: 5px;
+}
+
+.app-title {
+    color: white;
+    text-decoration: none;
+}

@@ -1,0 +1,23 @@
+<mat-grid-list style="position: initial;" cols="1" rowHeight="33%">
+  <mat-grid-tile></mat-grid-tile>
+  <mat-grid-tile class="center">
+
+    <mat-grid-list style="position: initial;" cols="1" rowHeight="33%">
+      <mat-grid-tile>
+        <h1>beerboard</h1>
+      </mat-grid-tile>
+      
+      <mat-grid-tile>
+        <mat-form-field class="half-width">
+          <input matInput [(ngModel)]="query" type="search" shouldPlaceholderFloat="true" placeholder="Find your next favorite beer..." />
+        </mat-form-field>
+      </mat-grid-tile>
+      
+      <mat-grid-tile>     
+        <button mat-fab (click)="goToSearch()" color="primary">Search</button>   
+      </mat-grid-tile>
+    </mat-grid-list>
+
+  </mat-grid-tile>
+  <mat-grid-tile></mat-grid-tile>
+</mat-grid-list>

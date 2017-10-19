@@ -1,0 +1,36 @@
+<mat-toolbar color="primary">
+    <span><a href="/" class="app-title">beerboard</a></span>
+    <span class="spacer"></span>
+    <span>
+      <mat-form-field class="half-width">
+        <input matInput type="search" [(ngModel)]="query"/>
+      </mat-form-field>
+      <button mat-mini-fab color="white"><strong>></strong></button>
+    </span>
+</mat-toolbar>
+
+<div class="filtering-panel">
+  <mat-form-field>
+    <mat-select placeholder="Sort results by..." [(ngModel)]="sortBy">
+      <mat-option *ngFor="let sortOption of sortOptions" [value]="sortOption.value">
+        {{sortOption.text}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-select placeholder="Show organic..." [(ngModel)]="filterOrganic">
+      <mat-option *ngFor="let organicOption of organicOptions" [value]="organicOption.value">
+        {{organicOption.text}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-select placeholder="Filter by status..." [(ngModel)]="filterStatus">
+      <mat-option *ngFor="let statusOption of statusOptions" [value]="statusOption.value">
+        {{statusOption.text}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+<div>
