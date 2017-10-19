@@ -1,42 +1,48 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
 # compiled output
-/dist
-/tmp
-/out-tsc
+beerboard/dist
+beerboard/tmp
+beerboard/out-tsc
 
 # dependencies
-/node_modules
+beerboard/node_modules
 
 # IDEs and editors
-/.idea
-.project
-.classpath
-.c9/
-*.launch
-.settings/
-*.sublime-workspace
+beerboard/.idea
+beerboard/.project
+beerboard/.classpath
+beerboard/.c9/
+beerboard/*.launch
+beerboard/.settings/
+beerboard/*.sublime-workspace
 
 # IDE - VSCode
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
+beerboard/.vscode/*
+beerboard/!.vscode/settings.json
+beerboard/!.vscode/tasks.json
+beerboard/!.vscode/launch.json
+beerboard/!.vscode/extensions.json
 
 # misc
-/.sass-cache
-/connect.lock
-/coverage
-/libpeerconnection.log
-npm-debug.log
-testem.log
-/typings
+beerboard/.sass-cache
+beerboard/connect.lock
+beerboard/coverage
+beerboard/libpeerconnection.log
+beerboard/npm-debug.log
+beerboard/testem.log
+beerboard/typings
 
 # e2e
-/e2e/*.js
-/e2e/*.map
+beerboard/e2e/*.js
+beerboard/e2e/*.map
 
 # System Files
-.DS_Store
-Thumbs.db
+beerboard/.DS_Store
+beerboard/Thumbs.db
+
+# beerboard.API project
+beerboard.API/packages
+beerboard.API/.vs
+beerboard.API/beerboard.API/bin
+beerboard.API/beerboard.API/obj
